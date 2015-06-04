@@ -7,14 +7,16 @@
  */
 
 
-PShape rocket;
+//PShape rocket;
+Rocket rocket;
 PImage sky;
 float ry;
   
 public void setup() {
   size(800, 500, P3D);
   sky = loadImage("night-sky-hd-wallpaper.jpg");
-  rocket = loadShape("shipA_OBJ.obj");
+  //rocket = loadShape("shipA_OBJ.obj");
+  rocket = new Rocket(width/2, height/2 + 100, -200, "shipA_OBJ.obj");
 }
 
 public void draw() {
@@ -22,10 +24,10 @@ public void draw() {
   background(sky);
   lights();
   
-  translate(width/2, height/2 + 100, -200);
-  rotateZ(PI);
-  rotateY(ry);
-  shape(rocket);
-  
-  ry += 0.02;
+  //translate(width/2, height/2 + 100, -200);
+  //rotateZ(PI);
+  //rotateY(ry);
+  //shape(rocket);
+  rocket.drawShape();
+  //ry += 0.02;
 }
