@@ -8,6 +8,8 @@
 
 
 PShape rocket;
+PShape rock;
+PShape rock2;
 PImage sky;
 float ry;
   
@@ -15,6 +17,9 @@ public void setup() {
   size(800, 500, P3D);
   sky = loadImage("night-sky-hd-wallpaper.jpg");
   rocket = loadShape("shipA_OBJ.obj");
+  rock = loadShape("Stone_F_3.obj");
+  rock2 = loadShape("Stone_Forest_1_LOD1.obj");
+  
 }
 
 public void draw() {
@@ -24,8 +29,21 @@ public void draw() {
   
   translate(width/2, height/2 + 100, -200);
   rotateZ(PI);
-  rotateY(ry);
+  rotateY(2);
   shape(rocket);
-  
-  ry += 0.02;
+
+}
+
+public void moveRock(PShape rock){
+  //xpos =  + 
+  //translate(xpos,ypos,zpos);
+}
+
+public void createRock(){
+  //float  rockXPos;
+  float  rockYPos;
+  //rockXPos = random(width - 750, width - 1);
+  rockYPos = random(height - 450, height - 10);
+  translate(width/2 + 200, rockYPos, -200);
+  shape(rock);
 }
