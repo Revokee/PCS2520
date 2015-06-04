@@ -23,7 +23,7 @@ public class Rocket {
     pushMatrix();
     translate(this.x, this.y, this.z);
     rotateZ(PI);
-    rotateY(3*PI/4);
+    rotateY(PI/2);
     shape(this.shape);
     popMatrix();
   }

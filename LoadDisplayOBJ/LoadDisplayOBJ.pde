@@ -10,10 +10,8 @@ Rocket rocket;
 boolean[] keys = new boolean[255];
 // create background image container
 PImage sky;
-Rock newRock;
-float ry;
-ArrayList<Rock> rocks;
-int x = 0;
+//Create Rock System
+RockSystem rs;
 
 /******************************************************************************
  * Processing main setup method
@@ -25,21 +23,8 @@ public void setup() {
   sky = loadImage("night-sky-hd-wallpaper.jpg");
   //Stone_F_3.obj
   //rock = new Rock(width/2+600, height/2, -200, "Stone_Forest_1_LOD1.obj");
-  rocket = new Rocket(width/2, height/2 + 100, -200, "shipA_OBJ.obj");
-  rocks = new ArrayList<Rock>(); 
-  rocks.add(new Rock(width/2+1200, random(height - 450, height - 10), -200, "Stone_Forest_1_LOD1.obj"));
-  while(x < 3){
-    newRock = new Rock(width/2+1200, random(height - 800, height), -200, "Stone_Forest_1_LOD1.obj");
-    for (int i = 0; i < rocks.size(); i++) {
-      if(rocks.get(i).y <= newRock.y + 100){
-      
-      }
-      else{
-        rocks.add(newRock);
-        x = x + 1;
-      }
-    }
-  }
+  rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
+  rs = new RockSystem(10);
 }
 
 /******************************************************************************
@@ -50,15 +35,13 @@ public void setup() {
 public void draw() {
   background(sky);
   lights();
-
-  for (int i = 0; i < rocks.size(); i++) {
-    rocks.get(i).drawShape();
-  }
-  //rock.drawShape();
-
+  
   updatePlayer();
   rocket.drawShape();
-
+  
+  rs.update();
+  rs.display();
+  
 }
 
 /******************************************************************************
