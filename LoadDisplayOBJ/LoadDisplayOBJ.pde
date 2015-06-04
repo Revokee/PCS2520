@@ -8,17 +8,18 @@
 
 
 PShape rocket;
-
+PImage sky;
 float ry;
   
 public void setup() {
-  size(640, 360, P3D);
-    
-  rocket = loadShape("rocket.obj");
+  size(800, 500, P3D);
+  sky = loadImage("night-sky-hd-wallpaper.jpg");
+  rocket = loadShape("shipA_OBJ.obj");
 }
 
 public void draw() {
-  background(0);
+  camera(width/4.0, height/2.0, (height/8.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 1, 0, 1, 0);
+  background(sky);
   lights();
   
   translate(width/2, height/2 + 100, -200);
