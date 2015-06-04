@@ -1,9 +1,24 @@
+/******************************************************************************
+ * Global variables declaration
+ *
+ ******************************************************************************/
+// Define movement step constant
+public static final float movementStep = 5.0;
+// create rocket object
 Rocket rocket;
-Rock newRock;
+// create keyboard track array
+boolean[] keys = new boolean[255];
+// create background image container
 PImage sky;
+Rock newRock;
 float ry;
 ArrayList<Rock> rocks;
 int x = 0;
+
+/******************************************************************************
+ * Processing main setup method
+ *
+ ******************************************************************************/
 
 public void setup() {
   size(800, 500, P3D);
@@ -18,46 +33,55 @@ public void setup() {
     for (int i = 0; i < rocks.size(); i++) {
       if(rocks.get(i).y <= newRock.y + 100){
       
-      }else{
+      }
+      else{
         rocks.add(newRock);
         x = x + 1;
       }
-     }
-   }
-  //rocks.add(new Rock(random(width - 750, height - 10), random(height - 450, height - 10), -200, "Stone_Forest_1_LOD1.obj"));
-  //rocks.add(new Rock(random(width - 750, height - 10), random(height - 450, height - 10), -200, "Stone_Forest_1_LOD1.obj"));
-  //rocks.add(new Rock(random(width - 750, height - 10), random(height - 450, height - 10), -200, "Stone_Forest_1_LOD1.obj"));
-  //rocks.add()
+    }
+  }
 }
+
+/******************************************************************************
+ * Processing main draw method
+ *
+ ******************************************************************************/
+
 public void draw() {
-  camera(width/4.0, height/2.0, (height/8.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 1, 0, 1, 0);
   background(sky);
   lights();
-  rocket.drawShape();
+
   for (int i = 0; i < rocks.size(); i++) {
     rocks.get(i).drawShape();
   }
   //rock.drawShape();
-}
 
-public void moveRock(PShape rock){
-  //xpos =  + 
-  //translate(xpos,ypos,zpos);
-}
-
-public void createRock(){
-  //float  rockXPos;
-  //float  rockYPos;
-  //rockXPos = random(width - 750, width - 1);
-  //rockYPos = random(height - 450, height - 10);
-  //translate(width/2 + 200, rockYPos, -200);
-  //shape(rock);
-
-  //translate(width/2, height/2 + 100, -200);
-  //rotateZ(PI);
-  //rotateY(ry);
-  //shape(rocket);
-  //rocket.drawShape();
-  //ry += 0.02;
+  updatePlayer();
+  rocket.drawShape();
 
 }
+
+/******************************************************************************
+ * Keyboard keypressed/keyreleased event handlers
+ ******************************************************************************/
+void keyPressed() {
+  keys[keyCode] = true;
+}
+
+void keyReleased() {
+  keys[keyCode] = false;
+}
+
+/******************************************************************************
+ * updatePlayer method
+ * resolve new player position and status
+ ******************************************************************************/
+void updatePlayer() {
+  float dx = 0, dy = 0, dz = 0;  
+  if(keys[UP])    { dy -= movementStep; }
+  if(keys[DOWN])  { dy += movementStep; }
+  if(keys[LEFT])  { dx -= movementStep; }
+  if(keys[RIGHT]) { dx += movementStep; }
+  rocket.move(dx, dy, dz);
+}
+
