@@ -1,3 +1,13 @@
+/******************************************************************************
+ * File: Rocket.pde
+ * Author:
+ * Description: Contains Rocket class
+ ******************************************************************************
+ * Rocket Class
+ * Variables:
+ * Methods:
+ *
+ ******************************************************************************/
 public class Rocket {
   float x,y,z;
   PShape shape;
@@ -13,7 +23,7 @@ public class Rocket {
     pushMatrix();
     translate(this.x, this.y, this.z);
     rotateZ(PI);
-    rotateY(PI/2);
+    rotateY(3*PI/4);
     shape(this.shape);
     popMatrix();
   }
