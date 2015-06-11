@@ -9,7 +9,7 @@ class RockSystem {
     
     // Make all the Rocks
     for (int i = 0; i < n; i++) {
-      Rock newRock = new Rock(width/2+100, random(height - 800, height), 0, shape, random(-7,-1));
+      Rock newRock = new Rock(width, random(height - 800, height), 0, shape, random(-7,-1));
       rocks.add(newRock);
     }
   }
@@ -20,14 +20,14 @@ class RockSystem {
     }
   }
 
-  /*void setEmitter(float x, float y) {
-    for (Particle p : particles) {
-      // Each particle gets reborn at the emitter location
-      if (p.isDead()) {
-        p.rebirth(x, y);
+  void recreate() {
+    for (Rock r : rocks) {
+      if (r.isDead()) {
+        r.x = width;
+        r.y = random(height - 800, height);
       }
     }
-  }*/
+  }
 
   void display() {
     //shape(particleShape);

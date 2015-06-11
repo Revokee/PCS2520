@@ -2,6 +2,7 @@ public class Rock {
   float x,y,z, velX,velY;
   PShape shape;
   
+  
   public Rock (float x, float y, float z, PShape shape, float velX) {
     this.x = x;
     this.y = y;
@@ -18,6 +19,17 @@ public class Rock {
       rotateY(PI/2);
       shape(this.shape);
     popMatrix();
+  }
+  
+  // Is it off the screen, or its lifespan is over?
+  boolean isDead() {
+    if (this.x > width  || this.x < endOfSystem|| 
+        this.y > height || this.y < 0) {
+      return true;
+    } 
+    else {
+      return false;
+    }
   }
   
   /*void move (float dx, float dy, float dz){
