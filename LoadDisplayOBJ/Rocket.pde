@@ -9,13 +9,14 @@
  *
  ******************************************************************************/
 public class Rocket {
-  float x,y,z;
+  float x,y,z,r;
   PShape shape;
   
   public Rocket (float x, float y, float z, String shapeName) {
     this.x = x;
     this.y = y;
     this.z = z;
+    this.r = 10;
     this.shape = loadShape(shapeName);
   }
   

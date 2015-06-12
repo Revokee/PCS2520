@@ -20,8 +20,8 @@ RockSystem rs;
  ******************************************************************************/
 
 public void setup() {
-  size(1366, 768, P3D);
-  sky = loadImage("night-sky-hd-wallpaper.jpg");
+  size(1280, 800, P3D);
+  sky = loadImage("NewSky.jpg");
   //Stone_F_3.obj
   //rock = new Rock(width/2+600, height/2, -200, "Stone_Forest_1_LOD1.obj");
   rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
