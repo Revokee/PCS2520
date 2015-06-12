@@ -20,12 +20,12 @@ RockSystem rs;
  ******************************************************************************/
 
 public void setup() {
+  //frameRate(100);
   size(1280, 800, P3D);
-  sky = loadImage("NewSky.jpg");
-  //Stone_F_3.obj
-  //rock = new Rock(width/2+600, height/2, -200, "Stone_Forest_1_LOD1.obj");
+  //Reduzir a qualidade da imagem de fundo
+  //sky = loadImage("NewSky.jpg");
   rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
-  rs = new RockSystem(10);
+  rs = new RockSystem(15);
 }
 
 /******************************************************************************
@@ -34,7 +34,7 @@ public void setup() {
  ******************************************************************************/
 
 public void draw() {
-  background(sky);
+  background(51);
   lights();
   
   updatePlayer();
