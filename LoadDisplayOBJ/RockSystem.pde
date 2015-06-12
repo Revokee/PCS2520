@@ -5,7 +5,7 @@ class RockSystem {
   
   RockSystem(int n) {
     rocks = new ArrayList<Rock>();
-    shape = loadShape("Stone_Forest_1_LOD1.obj");
+    shape = loadShape("New_Stone_Forest.obj");
     
     // Make all the Rocks
     for (int i = 0; i < n; i++) {

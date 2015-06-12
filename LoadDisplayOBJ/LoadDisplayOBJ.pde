@@ -20,7 +20,7 @@ RockSystem rs;
  ******************************************************************************/
 
 public void setup() {
-  size(800, 500, P3D);
+  size(1366, 768, P3D);
   sky = loadImage("night-sky-hd-wallpaper.jpg");
   //Stone_F_3.obj
   //rock = new Rock(width/2+600, height/2, -200, "Stone_Forest_1_LOD1.obj");
