@@ -1,5 +1,5 @@
 public class Rock {
-  float x,y,z, velX,velY;
+  float x,y,z,r, velX,velY;
   PShape shape;
   
   
@@ -7,6 +7,7 @@ public class Rock {
     this.x = x;
     this.y = y;
     this.z = z;
+    this.r = 10;
     this.velX = velX;
     this.shape = shape;
   }
