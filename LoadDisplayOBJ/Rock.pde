@@ -2,7 +2,6 @@ public class Rock {
   float x,y,z,r, velX,velY;
   PShape shape;
   
-  
   public Rock (float x, float y, float z, PShape shape, float velX) {
     this.x = x;
     this.y = y;
