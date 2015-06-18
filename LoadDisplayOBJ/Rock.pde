@@ -6,7 +6,7 @@ public class Rock {
     this.x = x;
     this.y = y;
     this.z = z;
-    this.r = 10;
+    this.r = rockRadius;
     this.velX = velX;
     this.shape = shape;
   }
@@ -53,5 +53,9 @@ public class Rock {
   void update() {
     this.x = this.x + velX;
   }
-   
+  
+  void reset() {
+    this.x = width;
+    this.y = random(height - 800, height); 
+  } 
 }

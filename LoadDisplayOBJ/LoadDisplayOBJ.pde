@@ -5,6 +5,8 @@
 // Define movement step constant
 public static final float movementStep = 5.0;
 public static final int endOfSystem = -100;
+public static final float rockRadius = 30.0;
+public static final float rockectRadius = 20.0;
 // create rocket object
 Rocket rocket;
 // create keyboard track array
@@ -67,12 +69,13 @@ public void draw() {
   switch(gameState){
     case(PLAYING):
       background(51);
-      //lights();
+      lights();
       updatePlayer();
       rocket.drawShape();
       rs.update();
       rs.display();
       rs.recreate();
+      collisionDetectionSystemRunAll();
       break;
     case(MAIN_MENU):
       handleStateShowWelcomeScreen();

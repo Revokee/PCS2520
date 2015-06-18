@@ -9,7 +9,7 @@ class RockSystem {
     
     // Make all the Rocks
     for (int i = 0; i < n; i++) {
-      Rock newRock = new Rock(width, random(height - 800, height), 0, shape, random(-7,-1));
+      Rock newRock = new Rock(width + random(50, 500), random(height - 800, height), 0, shape, random(-7,-1));
       rocks.add(newRock);
     }
   }
@@ -23,8 +23,7 @@ class RockSystem {
   void recreate() {
     for (Rock r : rocks) {
       if (r.isDead()) {
-        r.x = width;
-        r.y = random(height - 800, height);
+        r.reset();
       }
     }
   }
@@ -36,4 +35,3 @@ class RockSystem {
     }  
   }
 }
-

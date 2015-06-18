@@ -16,7 +16,7 @@ public class Rocket {
     this.x = x;
     this.y = y;
     this.z = z;
-    this.r = 10;
+    this.r = rockectRadius;
     this.shape = loadShape(shapeName);
   }
   
