@@ -13,7 +13,8 @@ void collisionDetectionSystemRunAll() {
 
 void detectCollisionWithShipLoop () {
   for (Rock r : rs.rocks) {
-    if (detectCollisionWithShip(r)) {     // do somehing
+    if (detectCollisionWithShip(r)) {     
+      // do somehing
       r.reset();
     }
   }
