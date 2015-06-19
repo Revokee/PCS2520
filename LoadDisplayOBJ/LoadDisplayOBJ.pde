@@ -76,6 +76,8 @@ public void draw() {
       rs.display();
       rs.recreate();
       collisionDetectionSystemRunAll();
+      ps.update();
+      ps.display();
       break;
     case(MAIN_MENU):
       handleStateShowWelcomeScreen();

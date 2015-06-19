@@ -41,6 +41,7 @@ void mousePressedStateWelcomeScreen() {
 }
 
 void loadGame(){
+  ps = new ParticleSystem(2000);
   rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
   rs = new RockSystem(15);
 }

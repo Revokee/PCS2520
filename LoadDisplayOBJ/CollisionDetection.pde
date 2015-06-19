@@ -18,7 +18,7 @@ void detectCollisionWithShipLoop () {
     }
   }
 }
-/*
+
 Boolean detectCollisionWithShip (Rock rock) {
  // Bounding shperes Collision Detection
  // (ax-bx)^2 + (ay-by)^2 + (az-bz)^2 < (ar+br)^2
@@ -36,7 +36,8 @@ void detectCollisionBetweenRocksLoop () {
       if (detectCollisionBetweenRocks(rs.rocks.get(i), rs.rocks.get(j))){
         // do something
         rs.rocks.get(i).reset();
-        rs.rocks.get(j).reset();
+        rs.rocks.get(j).reset();  
+        ps.setEmitter((rs.rocks.get(i).x +  rs.rocks.get(j).x)/2,(rs.rocks.get(i).y +  rs.rocks.get(j).y)/2);
       }
     }
   }
@@ -51,4 +52,4 @@ Boolean detectCollisionBetweenRocks (Rock rock_a, Rock rock_b) {
           + (rock_a.z - rock_b.z)*(rock_a.z - rock_b.z) 
           < (rock_a.r + rock_b.r)*(rock_a.r + rock_b.r));
 }
-*/
+
