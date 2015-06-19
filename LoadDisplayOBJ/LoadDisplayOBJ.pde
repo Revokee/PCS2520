@@ -118,7 +118,8 @@ void updatePlayer() {
 
 /******************************************************************************
  * gameInit method
- * Set the game's starting variables in a separate function which can then be called again at game over to reset all necessary variables
+ * Set the game's starting variables in a separate function which can then 
+ * be called again at game over to reset all necessary variables
  ******************************************************************************/
 
 void gameInit(){
@@ -130,4 +131,14 @@ void gameInit(){
   rectButtonBoard3 = new Rectangle(textXPos, textYPos[2], 500, 145, menuText[2]); 
 
   gameState = MAIN_MENU;
+}
+
+/******************************************************************************
+ * loadGame method
+ * called when player select Start in main menu
+ ******************************************************************************/
+void loadGame(){
+  ps = new ParticleSystem(1000);
+  rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
+  rs = new RockSystem(15);
 }
