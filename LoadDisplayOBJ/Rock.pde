@@ -23,8 +23,7 @@ public class Rock {
   
   // Is it off the screen, or its lifespan is over?
   boolean isDead() {
-    if (this.x > width  || this.x < endOfSystem|| 
-        this.y > height || this.y < 0) {
+    if (this.x < endOfSystem || this.y > height || this.y < 0) {
       return true;
     } 
     else {
@@ -55,7 +54,7 @@ public class Rock {
   }
   
   void reset() {
-    this.x = width;
+    this.x = width + random(50, 500);
     this.y = random(height - 800, height); 
   } 
 }

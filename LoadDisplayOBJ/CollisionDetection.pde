@@ -13,12 +13,13 @@ void collisionDetectionSystemRunAll() {
 
 void detectCollisionWithShipLoop () {
   for (Rock r : rs.rocks) {
-    if (detectCollisionWithShip(r)) {     // do somehing
+    if (detectCollisionWithShip(r)) {     
+      // do somehing
       r.reset();
     }
   }
 }
-/*
+
 Boolean detectCollisionWithShip (Rock rock) {
  // Bounding shperes Collision Detection
  // (ax-bx)^2 + (ay-by)^2 + (az-bz)^2 < (ar+br)^2
@@ -51,4 +52,4 @@ Boolean detectCollisionBetweenRocks (Rock rock_a, Rock rock_b) {
           + (rock_a.z - rock_b.z)*(rock_a.z - rock_b.z) 
           < (rock_a.r + rock_b.r)*(rock_a.r + rock_b.r));
 }
-*/
+
