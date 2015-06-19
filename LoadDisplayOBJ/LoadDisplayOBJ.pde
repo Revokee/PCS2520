@@ -140,5 +140,5 @@ void gameInit(){
 void loadGame(){
   ps = new ParticleSystem(1000);
   rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
-  rs = new RockSystem(15);
+  rs = new RockSystem(10);
 }

@@ -19,7 +19,7 @@ class Particle {
     part.vertex(-partSize/2, +partSize/2, 0, sprite.height);
     part.endShape();
     
-    rebirth(width/2,height/2);
+    rebirth(width + 100,height);
     lifespan = random(255);
   }
 
@@ -48,7 +48,7 @@ class Particle {
 
   public void update() {
     lifespan = lifespan - 1;    
-    part.setTint(color(255,lifespan));
+    part.setTint(color(100,lifespan));
     part.translate(velocity.x, velocity.y);
   }
 }
