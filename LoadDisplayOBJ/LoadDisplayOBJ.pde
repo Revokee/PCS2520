@@ -15,6 +15,9 @@ boolean[] keys = new boolean[255];
 PImage sky;
 //Create Rock System
 RockSystem rs;
+//Create Particle System
+ParticleSystem ps;
+PImage sprite;  
 //Game Flow Control
 public static final int PLAYING = 0;
 public static final int MAIN_MENU = 1;
@@ -57,6 +60,7 @@ public void setup() {
   size(1280, 800, P3D);
   //Reduzir a qualidade da imagem de fundo
   //sky = loadImage("NewSky.jpg");
+  sprite = loadImage("sprite.png");
   gameInit();
 }
 

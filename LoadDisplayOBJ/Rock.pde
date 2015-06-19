@@ -54,7 +54,7 @@ public class Rock {
   }
   
   void reset() {
-    this.x = width + random(50, 500);
+    this.x = width;
     this.y = random(height - 800, height); 
   } 
 }
