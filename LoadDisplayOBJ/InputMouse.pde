@@ -40,7 +40,3 @@ void mousePressedStateWelcomeScreen() {
   }
 }
 
-void loadGame(){
-  rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
-  rs = new RockSystem(15);
-}
