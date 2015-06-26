@@ -72,9 +72,7 @@ public void setup() {
   //Reduzir a qualidade da imagem de fundo
   //sky = loadImage("NewSky.jpg");
   sprite = loadImage("sprite.png");
-  cameraEyeX = width/2.0;
-  cameraEyeY = height/2.0;
-  cameraEyeZ = (height/2.0) / tan(PI*30.0 / 180.0);
+  resetCameraPosition();
   gameInit();
 }
 
@@ -84,17 +82,17 @@ public void setup() {
  ******************************************************************************/
 
 public void draw() {
+  camera(cameraEyeX, cameraEyeY, cameraEyeZ, width/2.0, height/2.0, 0, 0, 1, 0);
   switch(gameState){
     case(PLAYING):
-      camera(cameraEyeX, cameraEyeY, cameraEyeZ, width/2.0, height/2.0, 0, 0, 1, 0);
       handleStatePlay();
       break;
     case(MAIN_MENU):
-      camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
+      resetCameraPosition();
       handleStateShowWelcomeScreen();
       break;
     case(GAME_OVER):
-      camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
+      resetCameraPosition();
       // handle game over
       break;
   }
@@ -150,4 +148,10 @@ void loadGame(){
   ps = new ParticleSystem(1500);
   rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
   rs = new RockSystem(10);
+}
+
+void resetCameraPosition (){
+  cameraEyeX = width/2.0;
+  cameraEyeY = height/2.0;
+  cameraEyeZ = (height/2.0) / tan(PI*30.0 / 180.0); 
 }

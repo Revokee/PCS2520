@@ -64,7 +64,7 @@ public class Rocket {
     }
     if (dy != 0){
       // accelerate camera in Y axis
-      cameraEyeY += dy;
+      //cameraEyeY += dy;
     }
     if (dz != 0){
       // accelerate camera in Z axis
