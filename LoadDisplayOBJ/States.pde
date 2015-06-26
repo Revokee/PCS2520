@@ -6,6 +6,11 @@ void handleStateShowWelcomeScreen() {
   textAlign(CENTER);
   text (strConstTitel, width/2, 100);
   
+  //Check if the player already played once
+  if(played){
+    textSize(48);
+    text("High Score: " + highScore, width/2,200);
+  }
   rectButtonBoard1.outputRect();
   rectButtonBoard2.outputRect();
   rectButtonBoard3.outputRect();
@@ -13,7 +18,22 @@ void handleStateShowWelcomeScreen() {
 
 
 void handleStatePlay() {
-
+  background(51);
+  lights();
+  updatePlayer();
+  rocket.drawShape();
+  rs.update();
+  rs.display();
+  rs.recreate();
+  collisionDetectionSystemRunAll();
+  ps.update();
+  ps.display();
+  fill(0,102,153);
+  textSize(32);
+  textAlign(LEFT);
+  text(scoreText, 10,30);
+  text(score, 100,30);
+  score ++;
 }
 
 //

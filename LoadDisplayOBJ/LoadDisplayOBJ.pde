@@ -5,7 +5,7 @@
 // Define movement step constant
 public static final float movementStep = 5.0;
 public static final int endOfSystem = -100;
-public static final float rockRadius = 30.0;
+public static final float rockRadius = 37.0;
 public static final float rockectRadius = 20.0;
 // create rocket object
 Rocket rocket;
@@ -24,10 +24,17 @@ public static final int MAIN_MENU = 1;
 public static final int GAME_OVER = 2;
 public static final int HELP = 3;
 
+//Control GameState
 int gameState;
+boolean played=false;
+//Score
+int score = 0;
+int highScore = 0;
 
 // Title
 final String strConstTitel = "Space Rush";
+//Score
+final String scoreText = "Score: ";
 
 // Rectangles as buttons for main menu
 Rectangle rectButtonBoard1;
@@ -80,16 +87,7 @@ public void draw() {
   switch(gameState){
     case(PLAYING):
       camera(cameraEyeX, cameraEyeY, cameraEyeZ, width/2.0, height/2.0, 0, 0, 1, 0);
-      background(51);
-      lights();
-      updatePlayer();
-      rocket.drawShape();
-      rs.update();
-      rs.display();
-      rs.recreate();
-      collisionDetectionSystemRunAll();
-      ps.update();
-      ps.display();
+      handleStatePlay();
       break;
     case(MAIN_MENU):
       camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
@@ -133,6 +131,7 @@ void updatePlayer() {
  ******************************************************************************/
 
 void gameInit(){
+  background(10);
   // define values for class Rectangle
   textXPos = width/2-250;
   // define objects of class Rectangle
@@ -148,7 +147,7 @@ void gameInit(){
  * called when player select Start in main menu
  ******************************************************************************/
 void loadGame(){
-  ps = new ParticleSystem(1000);
+  ps = new ParticleSystem(1500);
   rocket = new Rocket(width/2, height/2 + 100, 0, "shipA_OBJ.obj");
   rs = new RockSystem(10);
 }
