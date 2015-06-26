@@ -18,9 +18,9 @@ class Particle {
     part.vertex(+partSize/2, +partSize/2, sprite.width, sprite.height);
     part.vertex(-partSize/2, +partSize/2, 0, sprite.height);
     part.endShape();
-    
+
     rebirth(width + 100,height);
-    lifespan = random(255);
+    lifespan = random(100);
   }
 
   PShape getShape() {
@@ -32,7 +32,7 @@ class Particle {
     float speed = random(0.5,4);
     velocity = new PVector(cos(a), sin(a));
     velocity.mult(speed);
-    lifespan = 255;   
+    lifespan = 100;   
     part.resetMatrix();
     part.translate(x, y); 
   }

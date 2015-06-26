@@ -16,6 +16,13 @@ void detectCollisionWithShipLoop () {
     if (detectCollisionWithShip(r)) {     
       // do somehing
       r.reset();
+      if (score > highScore){
+        highScore = score;
+      }
+      played = true;
+      score = 0;
+      background(10);
+      gameState = MAIN_MENU;
     }
   }
 }
@@ -36,9 +43,12 @@ void detectCollisionBetweenRocksLoop () {
       // compare rocks.get(i) and rocks.get(j)
       if (detectCollisionBetweenRocks(rs.rocks.get(i), rs.rocks.get(j))){
         // do something
+        ps.setEmitter((rs.rocks.get(i).x +  rs.rocks.get(j).x)/2,(rs.rocks.get(i).y +  rs.rocks.get(j).y)/2);
         rs.rocks.get(i).reset();
         rs.rocks.get(j).reset();  
-        ps.setEmitter((rs.rocks.get(i).x +  rs.rocks.get(j).x)/2,(rs.rocks.get(i).y +  rs.rocks.get(j).y)/2);
+        //println("Rock 1 X: %f",rs.rocks.get(i).x);
+        //println("Rock 2 X: %f",rs.rocks.get(j).x);
+        
       }
     }
   }

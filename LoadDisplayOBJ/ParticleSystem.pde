@@ -21,9 +21,13 @@ class ParticleSystem {
   }
 
   void setEmitter(float x, float y) {
+    int i = 100;
     for (Particle p : particles) {
       if (p.isDead()) {
         p.rebirth(x, y);
+        if(--i < 0){
+          break;
+        }
       }
     }
   }
