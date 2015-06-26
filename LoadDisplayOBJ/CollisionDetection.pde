@@ -21,6 +21,7 @@ void detectCollisionWithShipLoop () {
       }
       played = true;
       score = 0;
+      resetCameraPosition();
       background(10);
       gameState = MAIN_MENU;
     }

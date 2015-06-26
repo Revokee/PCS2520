@@ -88,7 +88,6 @@ public void draw() {
       handleStatePlay();
       break;
     case(MAIN_MENU):
-      resetCameraPosition();
       handleStateShowWelcomeScreen();
       break;
     case(GAME_OVER):
