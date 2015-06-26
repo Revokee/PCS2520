@@ -26,7 +26,7 @@ public static final int HELP = 3;
 
 int gameState;
 
-// Titel
+// Title
 final String strConstTitel = "Space Rush";
 
 // Rectangles as buttons for main menu
@@ -34,6 +34,7 @@ Rectangle rectButtonBoard1;
 Rectangle rectButtonBoard2;
 Rectangle rectButtonBoard3;
 
+// menu text
 final String [] menuText =
 {
   "Play ",
@@ -50,6 +51,9 @@ int[] textYPos = {
   700
 };
 
+// camera position
+float cameraEyeX, cameraEyeY, cameraEyeZ;
+
 /******************************************************************************
  * Processing main setup method
  *
@@ -61,6 +65,9 @@ public void setup() {
   //Reduzir a qualidade da imagem de fundo
   //sky = loadImage("NewSky.jpg");
   sprite = loadImage("sprite.png");
+  cameraEyeX = width/2.0;
+  cameraEyeY = height/2.0;
+  cameraEyeZ = (height/2.0) / tan(PI*30.0 / 180.0);
   gameInit();
 }
 
@@ -72,6 +79,7 @@ public void setup() {
 public void draw() {
   switch(gameState){
     case(PLAYING):
+      camera(cameraEyeX, cameraEyeY, cameraEyeZ, width/2.0, height/2.0, 0, 0, 1, 0);
       background(51);
       lights();
       updatePlayer();
@@ -84,9 +92,11 @@ public void draw() {
       ps.display();
       break;
     case(MAIN_MENU):
+      camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
       handleStateShowWelcomeScreen();
       break;
     case(GAME_OVER):
+      camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
       // handle game over
       break;
   }

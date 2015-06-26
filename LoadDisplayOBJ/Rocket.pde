@@ -44,6 +44,8 @@ public class Rocket {
     float Z = this.z + dz;
     // check if new position is inside canvas boundaries
     if (isInsideCanvas(X, Y, Z)){
+      // animate camera
+      cameraAnimation(dx, dy, dz);
       // commit changes
       this.x = X;
       this.y = Y;
@@ -51,6 +53,22 @@ public class Rocket {
     }
     else {
       // discard changes and exit
+    }
+  }
+  
+  void cameraAnimation(float dx, float dy, float dz){
+    // camera animation
+    if (dx != 0){
+      // accelerate camera in X axis
+      cameraEyeX += dx;
+    }
+    if (dy != 0){
+      // accelerate camera in Y axis
+      cameraEyeY += dy;
+    }
+    if (dz != 0){
+      // accelerate camera in Z axis
+      cameraEyeZ += dz;
     }
   }
    
